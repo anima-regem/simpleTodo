@@ -7,14 +7,20 @@ function Sections() {
     const [task, setTask] = useState("")
 
     function handleAdd(e){
-        setList(
-            [...list, task]
-        )
-        e.preventDefault()
-        setTask("")
+        if(task!==''){
+
+            setList(
+                [...list, task]
+                )
+                setTask("")
+            }
+            e.preventDefault()
     }
     function handleChange(e){
         setTask(e.target.value)
+    }
+    function deletePerson(){
+        const newList = []
     }
   return (
     <div>
@@ -25,7 +31,7 @@ function Sections() {
         <br />
         <button >Add</button>
         </form>
-        <Items list={list}/>
+        <Items list={list} deletePerson={deletePerson}/>
     </div>
   )
 }
